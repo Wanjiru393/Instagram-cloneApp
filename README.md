@@ -1,11 +1,11 @@
-### Project Title
+## Project Title
 
 INSTAGRAM
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## Prerequisites
+### Prerequisites
 The Galeria project requires a prerequisite understanding of the following:
 
 Django Framework Python3.10 Postgres Python virtualenv
@@ -14,10 +14,10 @@ Django Framework Python3.10 Postgres Python virtualenv
 Activate virtual environment
 Activate virtual environment using python3.10 as default handler :'source env/bin/activate'
 
-## Install dependancies
+### Install dependancies
 Install dependancies that will create an environment for the app to run pip3 install -r requirements.txt
 
-## Create the Database
+### Create the Database
 psql
 CREATE DATABASE 'instagram'
 SECRET_KEY = '<Secret_key>' DB_NAME = 'instagram' USER = '' PASSWORD = '' DEBUG = True
@@ -32,10 +32,10 @@ The application is deployed on Heroku and is live on this link:
 Django 4.0.4 - Back end logic of the application.
 Bootstrap4 - Used for overall design and responsive site
 Pillow 9.1.1 - Used for image uploads.
-## Contributing
+### Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Authors
+### Authors
 Wanjiru Charity
 
 ## License
