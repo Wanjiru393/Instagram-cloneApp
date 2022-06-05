@@ -70,6 +70,14 @@ header{
     font-size: 25px;
     padding-left: 10px;
 }
+.content-container{
+    background-color:white;
+    padding-top: 50px;
+    position:absolute;
+    width:100%;
+    top:80px;
+    left:0 px;
+}
 
 h1{
     color: rgb(0, 128, 0);

@@ -25,16 +25,41 @@
 
     
 
-    <div class="container mt-5">
+    <div class="content-container">
+
         {% for post in posts %}
-            <p>{{post.author}}</p>
-        
-            <p>{{post.caption}}</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="prof-image">
+                    </div>
+                    <div class="post-info">
+                        <div class="post-name">{{post.author}}</div>
+                        <div class="post-location">Maldives</div>
+                    </div>
+                    <div class="post-options"><i class="fas fa-ellipsis-h"></i></a></div>
+                </div>
+                <div class="post-image">
+                    <img src="static/images/fliq.jpg" alt="">
+                </div>
+                <div class="engagement">
+                    <a href=""><i class="far fa-heart"></i></a>
+                    <a href=""><i class="fa-solid fa-comment"></i></a>
+                    <a href=""><i class="fa-solid fa-share-from-square"></i></a>
+                    <a href=""><i class="fa-solid fa-bookmark"></i></a>
+                </div>
+                <div class="likes">
+                    <a href=""></a>
+                </div>
+                <div class="caption">
+                    <a href=""><h3>{{post.author}}</h3></a>
+                    <span><p>{{post.caption}}</p></span>
+                </div>
+            </div>
         {% endfor %}
+
+         <h1>Hello!</h1>
     </div>
-    <div>
-        <h1>Hello!</h1>
-    </div>
+    
 
 {% endblock content %}
 
