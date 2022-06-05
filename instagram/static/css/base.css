@@ -1,6 +1,25 @@
 *{
     font-family: Roboto-Regular;
 }
+body{
+    background-color: #ffff;
+}
+header{
+    background-color: #ffff;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left:0;
+    width: 100%;
+    top: 0;
+}
+.navigation{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content:center;
+    padding: 26px 20px;
+    flex-wrap: wrap;
+}
 
 h1{
     color: green;
