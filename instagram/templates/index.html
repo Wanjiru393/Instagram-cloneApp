@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
 {%block content %}
+    
 
-<h1 class="text-center">Hello!</h1>
-<p>This sounds Amazing</p>
+    <h1>Hello!</h1>
+   
 
 {% endblock content %}
+
+
+<div class="container">
+    {% for post in posts %}
+        <p>{{post.author}}</p>
+       
+        <p>{{post.caption}}</p>
+    {% endfor %}
+</div>
