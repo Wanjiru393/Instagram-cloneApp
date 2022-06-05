@@ -78,6 +78,32 @@ header{
     top:80px;
     left:0 px;
 }
+.card{
+    background-color:white;
+    margin:0 auto;
+    width:614px;
+    height:auto;
+    border: 8px solid white;
+    border-radius: 4px;
+    margin-bottom: 60px; 
+}
+.card-header{
+    padding:10px;  
+}
+.card-header a{
+    text-decoration: none;
+    color: black;
+}
+.prof-image{
+    display:inline-block;
+    background-color:turquoise;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin:0;
+    border:0 solid #000;
+    border-radius:50%;
+}
 
 h1{
     color: rgb(0, 128, 0);
