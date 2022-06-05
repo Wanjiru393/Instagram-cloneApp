@@ -54,6 +54,9 @@
                     <a href=""><h3>{{post.author}}</h3></a>
                     <span><p>{{post.caption}}</p></span>
                 </div>
+                <div class="time_posted">
+                    {{post.created_date | timesince}} ago
+                </div>
             </div>
         {% endfor %}
 
