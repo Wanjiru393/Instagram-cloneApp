@@ -50,10 +50,10 @@ header{
     display: flex;
     justify-content:flex-end;
     width:30%;
-    padding-left:50px;
+    padding-left:10px;
 }
 .contact_icons a{
-    padding-left: 15px;
+    padding-left: 25px;
     font-size: 25px;
     font-weight: lighter;
 }
