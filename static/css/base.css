@@ -129,9 +129,9 @@ header{
     padding:5px;
     color:rgba(75, 74, 74, 0.8);
 }
-.post-image{
+.post-image img{
     width:100%;
-    /* height:614px; */
+    height:614px;
 }
 .engagement{
     display:inline-block;
@@ -195,5 +195,5 @@ header{
     text-transform: uppercase;
 }
 h1{
-    color: rgb(0, 128, 0);
+    color: rgb(117, 0, 128);
 }
