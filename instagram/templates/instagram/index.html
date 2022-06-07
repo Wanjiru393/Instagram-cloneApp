@@ -35,19 +35,20 @@
 
     <div class="content-container">
 
-        {% for post in posts %}
+        {% for post_item in post_items %}
+
             <div class="card">
                 <div class="card-header">
                     <div class="prof-image">
                     </div>
                     <div class="post-info">
-                        <div class="post-name">{{post.user}}</div>
+                        <div class="post-name">{{ post_item.user.username }}</div>
                         <div class="post-location">Maldives</div>
                     </div>
                     <div class="post-options"><i class="fas fa-ellipsis-h"></i></a></div>
                 </div>
                 <div class="post-image">
-                    <img src="{{ post.image.url }}" alt="">
+                    <img src="{{ post_item.image.url }}" alt="">
                 </div>
                 <div class="engagement">
                     <a href=""><i class="far fa-heart"></i></a>
@@ -56,14 +57,17 @@
                     <a href=""><i class="fa-solid fa-bookmark"></i></a>
                 </div>
                 <div class="likes">
-                    <a href="">10</a> Likes
+                    <a href="">{{post_item.likes}}</a> Likes
                 </div>
                 <div class="caption">
-                    <a href=""><h3>{{post.user}}</h3></a>
-                    <span><p>{{post.caption}}</p></span>
+                    <a href=""><h4>{{post_item.user.username}}</h4></a>
+                    <span><p>{{post_item.caption}}</p></span>
+                    <p>{% for tag in post_item.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }} </a></p>
+                    {% endfor %}
+
                 </div>
                 <div class="time_posted">
-                    {{post.created_date | timesince}} ago
+                   <small> {{post_item.created_date | timesince}} ago</small>
                 </div>
             </div>
         {% endfor %}

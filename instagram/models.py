@@ -28,10 +28,11 @@ class Tag(models.Model):
     slug = models.SlugField(null=False, unique=True)
 
     class Meta:
+        verbose_name='Tag'
         verbose_name_plural='Tags'
 
-    def get_absolute_url(self):
-        return reverse("tags", arg=[self.slug])
+    # def get_absolute_url(self):
+    #     return reverse("tags", args=[self.slug])
     
 
     def __str__(self):
