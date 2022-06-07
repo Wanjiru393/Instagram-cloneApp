@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('instagram.urls')),
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls')),
 ]
 
 

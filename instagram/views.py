@@ -14,7 +14,7 @@ def index(request):
     posts = Post.objects.all()
 
     context = {'posts':posts}
-    return render(request, 'index.html', context)
+    return render(request, 'instagram/index.html', context)
 
 
 # def create(request):

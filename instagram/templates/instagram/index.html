@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'instagram/base.html' %}
 
 {%block content %}
 
     <header>
         <div class="navigation">
             <div class="logo">
+                
+                 <a href="{% url 'login' %}">Login</a>
+
                 <a class="" href="#"><i class="fab fa-instagram"></i></a>
                 <a class="vl" href="#"></a>
                 <a href="#">Instagram</a>
