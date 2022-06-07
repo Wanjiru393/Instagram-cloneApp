@@ -35,7 +35,7 @@ class Tag(models.Model):
     
 
     def __str__(self):
-        self.title 
+       return self.title 
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -56,8 +56,6 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("postdetails", args=[str(self.id)])
 
-    def __str__(self):
-        return self.posted
 
 class Follow(models.Model):
     follower = models.ForeignKey(User,on_delete=models.CASCADE,related_name='follower')
@@ -74,7 +72,7 @@ class Stream(models.Model):
         user = post.user
         followers = Follow.objects.all().filter(following=user)
         for follower in followers:
-            stream = Stream(post=post,user=folower.follower, date=post.posted,following=user)
+            stream = Stream(post=post,user=follower.follower, date=post.created_date,following=user)
             stream.save()
 
 post_save.connect(Stream.add_post,sender=Post )
