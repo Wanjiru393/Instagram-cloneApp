@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Stream, Tag, Likes
+from comment.models import Comment
+
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+
 from .forms import NewPostForm
+from comment.forms import CommentForm
+
 from django.urls import reverse
+
 # Create your views here.
 
 
@@ -31,9 +37,24 @@ def index(request):
 # @login_required()
 def PostDetails(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    user = request.user
+
+    comments = Comment.objects.filter(post=post).order_by('date')
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = user
+            comment.save()
+            return HttpResponseRedirect(reverse('postdetails', args=[post_id]))
+    else:
+        form = CommentForm()
 
     context = {
         'post': post,
+        'form': form,
+        'comments': comments,
     }
 
     return render(request, 'instagram/post_detail.html', context)

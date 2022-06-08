@@ -38,6 +38,53 @@
            <time>{{ post.created_date | timesince}} ago</time>
         </div>
     </div>
+
+    <div class="card-content">
+
+{% for comment in comments %}
+<article class="media">
+  <figure class="media-left">
+    {% comment %} <p class="image is-64x64">
+      {% if comment.user.profile.picture %}
+        <img src="{{ comment.user.profile.picture.url }}" alt="Placeholder image">
+      {% else %}
+        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+      {% endif %}
+    </p> {% endcomment %}
+  </figure>
+
+  <div class="media-content">
+    <div class="content">
+      <p>
+         <small> @{{ comment.user.username }}</small>
+        <br>
+          {{ comment.body }}
+        <br>
+        <strong><small>{{ comment.date|timesince }}</small></strong>
+      </p>
+    </div>
+
+</article>
+{% endfor %}
+<div class="media-content">
+    <form method="post" action="" role="form">
+      {% csrf_token %}
+
+    <div class="field">
+      <p class="control">
+          {% comment %} <textarea class="textarea" placeholder="Add a comment..."></textarea> {% endcomment %}
+        {{ form.body }}
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button type="submit" name="action" class="btn btn-secondary">Post comment</button>
+      </p>
+    </div>
+    </form>
+  </div>
+
+
             
 
 {% endblock %}
