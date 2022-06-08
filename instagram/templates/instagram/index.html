@@ -47,18 +47,24 @@
                     </div>
                     <div class="post-options"><i class="fas fa-ellipsis-h"></i></a></div>
                 </div>
+
                 <div class="post-image">
-                    <img src="{{ post_item.image.url }}" alt="">
+                   <a href="{% url 'postlikes' post_item.id %}"><img src="{{ post_item.image.url }}" alt=""></a>
                 </div>
+
+
                 <div class="engagement">
-                    <a href=""><i class="far fa-heart"></i></a>
+                    {% comment %} <a href=""><i class="far fa-heart"></i></a> {% endcomment %}
                     <a href=""><i class="fa-solid fa-comment"></i></a>
                     <a href=""><i class="fa-solid fa-share-from-square"></i></a>
                     <a href=""><i class="fa-solid fa-bookmark"></i></a>
                 </div>
+
                 <div class="likes">
-                    <a href="">{{post_item.likes}}</a> Likes
+                    <a href=""><i class="material-icons">favorite</i></a>
+                     <P>50</p>Likes
                 </div>
+
                 <div class="caption">
                     <a href=""><h4>{{post_item.user.username}}</h4></a>
                     <span><p>{{post_item.caption}}</p></span>

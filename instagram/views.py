@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
-from .models import Post, Stream, Tag
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Post, Stream, Tag, Likes
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import NewPostForm
+from django.urls import reverse
 # Create your views here.
 
 
@@ -25,6 +26,19 @@ def index(request):
         'post_items': post_items,
     }
     return render(request, 'instagram/index.html', context )
+
+
+# @login_required()
+# def PostDetails(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
+
+#     context = {
+#         'post': post,
+#     }
+
+#     return render(request, 'instagram/post_detail.html', context)
+
+
 
 
 # @login_required()
@@ -57,3 +71,25 @@ def NewPost(request):
 
     return render(request, 'instagram/newpost.html', context)
 
+
+
+@login_required()
+def like(request, post_id):
+    user = request.user
+    post = Post.objects.get(id=post_id)
+    current_likes = post.likes
+
+    liked = Liked.objects.filter(user=user, post=post.count()) 
+
+    if not liked:
+        like = Likes.objects.create(user=user, post=post)
+        current_likes = current_likes + 1
+
+    else:
+        Likes.objects.filter(user=user, post=post).delete()
+        current_likes = current_likes - 1
+
+    post.likes = current_likes
+    post.save()
+     
+    return HttpResponseRedirect(reverse('postlikes', args=[post_id]))

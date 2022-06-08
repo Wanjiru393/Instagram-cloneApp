@@ -55,7 +55,7 @@ class Post(models.Model):
     likes = models.IntegerField(default=0)
 
     def get_absolute_url(self):
-        return reverse("postdetails", args=[str(self.id)])
+        return reverse("postlikes", args=[str(self.id)])
 
 
 class Follow(models.Model):
@@ -75,6 +75,12 @@ class Stream(models.Model):
         for follower in followers:
             stream = Stream(post=post,user=follower.follower, date=post.created_date,following=user)
             stream.save()
+
+
+class Likes(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user_like')
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='post_likes')
+
 
 post_save.connect(Stream.add_post,sender=Post )
     
