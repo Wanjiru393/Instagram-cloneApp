@@ -1,0 +1,43 @@
+{% extends 'instagram/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <div class="columns is-mobile is-centered">
+    <div class="column">
+
+    <div class="card">
+    <div class="card-image is-4by3">
+        <figure>
+            <img src="{{ post.image.url}}" alt="Placeholder image">
+        </figure>
+    </div>
+
+    <div class="card-content">
+        <div class="media">
+        <div class="media-left">
+            <figure class="image is-48x48">
+                <img src="{{ post.user.profile.picture.url }}" alt="Placeholder image">
+               
+            </figure>
+        </div>
+
+        <div class="media-content">
+            <p class="title is-4">John Smith</p>
+            <p class="subtitle is-6">@{{ post.user.username }}</p>
+        </div>
+
+        <div class="content">
+           {{post.caption}}
+           <p>{% for tag in post.tags.all %}<a href="{{ tag.get_absolute_url }}">#{{ tag }} </a></p>
+            {% endfor %}
+            </p>
+           <br>
+           <time>{{ post.created_date | timesince}} ago</time>
+        </div>
+    </div>
+            
+
+{% endblock %}

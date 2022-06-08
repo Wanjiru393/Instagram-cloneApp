@@ -29,14 +29,14 @@ def index(request):
 
 
 # @login_required()
-# def PostDetails(request, post_id):
-#     post = get_object_or_404(Post, id=post_id)
+def PostDetails(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
 
-#     context = {
-#         'post': post,
-#     }
+    context = {
+        'post': post,
+    }
 
-#     return render(request, 'instagram/post_detail.html', context)
+    return render(request, 'instagram/post_detail.html', context)
 
 
 
@@ -73,13 +73,13 @@ def NewPost(request):
 
 
 
-@login_required()
+# @login_required()
 def like(request, post_id):
     user = request.user
     post = Post.objects.get(id=post_id)
     current_likes = post.likes
 
-    liked = Liked.objects.filter(user=user, post=post.count()) 
+    liked = Likes.objects.filter(user=user, post=post).count()
 
     if not liked:
         like = Likes.objects.create(user=user, post=post)
@@ -92,4 +92,4 @@ def like(request, post_id):
     post.likes = current_likes
     post.save()
      
-    return HttpResponseRedirect(reverse('postlikes', args=[post_id]))
+    return HttpResponseRedirect(reverse('postdetails', args=[post_id]))
