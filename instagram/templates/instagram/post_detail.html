@@ -40,16 +40,7 @@
 
 {% for comment in comments %}
 <article class="media">
-  {% comment %} <figure class="media-left">
-     <p class="image is-64x64">
-      {% if comment.user.profile.picture %}
-        <img src="{{ comment.user.profile.picture.url }}" alt="Placeholder image">
-      {% else %}
-        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-      {% endif %}
-    </p> 
-  </figure> {% endcomment %}
-
+  
   <div class="media-content">
     <div class="content">
       <p>
@@ -69,7 +60,7 @@
 
     <div class="field">
       <p class="control">
-          {% comment %} <textarea class="textarea" placeholder="Add a comment..."></textarea> {% endcomment %}
+          
         {{ form.body }}
       </p>
     </div>

@@ -62,7 +62,7 @@ def PostDetails(request, post_id):
 
 
 
-# @login_required()
+@login_required()
 def NewPost(request):
     user = request.user.id
     tags_objs = []
